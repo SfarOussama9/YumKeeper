@@ -12,7 +12,7 @@ function InputForm({ setIsOpen }) {
     e.preventDefault();
     let endpoint = isSignedUp ? "signup" : "login";
     await axios
-      .post(`http://localhost:5000/${endpoint}`, { email, password })
+      .post(`https://yumkeeper-backend.onrender.com/${endpoint}`, { email, password })
       .then((res) => {
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("user", JSON.stringify(res.data.user));
