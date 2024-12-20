@@ -9,7 +9,7 @@ export default function EditRecipe() {
 
   useEffect(() => {
     const getData = async () => {
-      await axios.get(`http://localhost:5000/recipe/${id}`).then((response) => {
+      await axios.get(`https://yumkeeper-backend.onrender.com/recipe/${id}`).then((response) => {
         let res = response.data;
         setRecipeData({
           title: res.title,
@@ -35,7 +35,7 @@ export default function EditRecipe() {
     e.preventDefault();
     console.log(recipeData);
     await axios
-      .put(`http://localhost:5000/recipe/${id}`, recipeData, {
+      .put(`https://yumkeeper-backend.onrender.com/recipe/${id}`, recipeData, {
         headers: {
           "Content-Type": "multipart/form-data",
           authorization: "bearer " + localStorage.getItem("token"),
